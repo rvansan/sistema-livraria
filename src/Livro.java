@@ -67,12 +67,21 @@ public class Livro {
         }
     }
 
-    public static void emprestarLivro(Cliente cliente, int idLivroEscolhido){
-        for(Livro livro : livros){
-            if(livro.getId() == idLivroEscolhido) {
+    public static void marcarLivroEmprestado(Livro livro){
+        for(Livro livroDisponivel : livros){
+            if(livro.getId() == livroDisponivel.getId() && livroDisponivel.isEstaDisponivel()) {
                 livro.estaDisponivel = false;
             }
         }
+    }
+
+    public static Livro getLivroById(int idLivro){
+        for(Livro livro : livros){
+            if(idLivro == livro.getId()) {
+                return livro;
+            }
+        }
+        return null;
     }
 
 }

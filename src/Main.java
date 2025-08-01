@@ -48,9 +48,11 @@ public class Main {
 
         System.out.println("Escolha o id do livro:");
         Scanner scanner = new Scanner(System.in);
-        int livroEscolhido = scanner.nextInt();
+        int idLivroEscolhido = scanner.nextInt();
 
-        Livro.emprestarLivro(cliente, livroEscolhido);
+        Livro livro = Livro.getLivroById(idLivroEscolhido);
+        Emprestimo.emprestarLivroCliente(livro, cliente);
+        Emprestimo.exibirEmprestimos();
 
 
         System.out.println("***************************\n");
